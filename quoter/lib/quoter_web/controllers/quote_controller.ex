@@ -56,4 +56,13 @@ def update(conn, %{"id" => id, "quote" => quote_params}) do
   end
 end
 
+def delete(conn, %{"id" => id}) do
+  quote = Quoter.Repo.get!(Quote, id)
+  {:ok, _quote} = Quoter.Repo.delete(quote)
+
+  conn
+  |> put_flash(:info, "Quote deleted successfully.")
+  |> redirect(to: quote_path(conn, :index))
+end
+
 end

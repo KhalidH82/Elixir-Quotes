@@ -22,6 +22,7 @@ defmodule QuoterWeb.Router do
     get "/quotes/:id", QuoteController, :show
     get "/quotes/:id/edit", QuoteController, :edit
     put "/quotes/:id", QuoteController, :update
+    delete "/quotes/:id", QuoteController, :delete
   end
 
   # Other scopes may use custom stacks.

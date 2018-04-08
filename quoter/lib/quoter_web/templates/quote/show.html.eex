@@ -4,4 +4,5 @@
 
 <div>
   <%= link "Edit", to: quote_path(@conn, :edit, @quote.id), class: "btn btn-default" %>
+  <%= link "Delete", to: quote_path(@conn, :delete, @quote), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
 </div>

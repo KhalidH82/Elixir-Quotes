@@ -10,8 +10,7 @@
   <%= link quote.author, to: quote_path(@conn, :show, quote.id) %>
 </li>
 <% end %>
-      <li class="list-group-item">Lobby</li>
-    </ul>
+   
   </div>
   <div class="col-md-9">
     <div class="jumbotron">
