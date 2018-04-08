@@ -17,6 +17,9 @@ defmodule QuoterWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", QuoteController, :index
+    get "/quotes/new", QuoteController, :new
+    post "/quotes", QuoteController, :create
+    get "/quotes/:id", QuoteController, :show
   end
 
   # Other scopes may use custom stacks.
