@@ -3,6 +3,6 @@
 <h2><%= @quote.body %></h2>
 
 <div>
-  <%= link "Edit", to: quote_path(@conn, :edit, @quote.id), class: "btn btn-default" %>
+  <%= link "Edit", to: quote_path(@conn, :edit, @quote.id), class: "btn btn-primary" %>
   <%= link "Delete", to: quote_path(@conn, :delete, @quote), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
 </div>
