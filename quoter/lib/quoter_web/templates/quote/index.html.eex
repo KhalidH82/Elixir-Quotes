@@ -1,0 +1,21 @@
+<h1>Quotes</h1>
+
+<div class="row">
+  <div class="col-md-3">
+    <h3>Quotes</h3>
+    <%= inspect @quotes %>
+      <li class="list-group-item">Lobby</li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="jumbotron">
+      <div class="page-header">
+        <h2>Welcome to Quoter</h2>
+      </div>
+      <div class="page-header">
+        <h2><small>Choose the room on the left to join</small></h2>
+        <h2><small>or <a href="" class="btn btn-success">Create</a> a new one</small></h2>
+      </div>
+    </div>
+  </div>
+</div>
