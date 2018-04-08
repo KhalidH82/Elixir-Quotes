@@ -1,1 +1,7 @@
-<h2>Room details</h2>
+<h2><%= @quote.author %></h2>
+
+<h2><%= @quote.body %></h2>
+
+<div>
+  <%= link "Edit", to: quote_path(@conn, :edit, @quote.id), class: "btn btn-default" %>
+</div>

@@ -1,5 +1,7 @@
 defmodule QuoterWeb.QuoteController do
 use QuoterWeb, :controller
+  alias Quoter.Information.Quote
+  alias Quoter.Repo
 
 def index(conn, _params) do
   quotes = Quoter.Information.list_quotes()
@@ -13,8 +15,6 @@ def new(conn, _params) do
 end
 
 def create(conn, %{"quote" => quote_params}) do
-  alias Quoter.Information.Quote
-  alias Quoter.Repo
   %Quote{}
   |> Quote.changeset(quote_params)
   |> Repo.insert()
@@ -29,8 +29,31 @@ def create(conn, %{"quote" => quote_params}) do
   end
 end
 
-def show(conn, _params) do
-  render conn, "show.html"
+def show(conn, %{"id" => id}) do
+  quote = Quoter.Repo.get!(Quote, id)
+  render(conn, "show.html", quote: quote)
+end
+
+def edit(conn, %{"id" => id}) do
+  quote = Quoter.Repo.get!(Quote, id)
+  changeset = Quoter.Information.change_quote(quote)
+  render(conn, "edit.html", quote: quote, changeset: changeset)
+end
+
+def update(conn, %{"id" => id, "quote" => quote_params}) do
+  quote = Quoter.Repo.get!(Quote, id)
+
+  quote
+  |> Quote.changeset(quote_params)
+  |> Quoter.Repo.update()
+  |> case do
+    {:ok, quote} ->
+      conn
+      |> put_flash(:info, "Quote updated successfully.")
+      |> redirect(to: quote_path(conn, :show, quote))
+    {:error, %Ecto.Changeset{} = changeset} ->
+      render(conn, "edit.html", quote: quote, changeset: changeset)
+  end
 end
 
 end

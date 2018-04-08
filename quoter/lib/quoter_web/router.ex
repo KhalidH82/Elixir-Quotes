@@ -20,6 +20,8 @@ defmodule QuoterWeb.Router do
     get "/quotes/new", QuoteController, :new
     post "/quotes", QuoteController, :create
     get "/quotes/:id", QuoteController, :show
+    get "/quotes/:id/edit", QuoteController, :edit
+    put "/quotes/:id", QuoteController, :update
   end
 
   # Other scopes may use custom stacks.
