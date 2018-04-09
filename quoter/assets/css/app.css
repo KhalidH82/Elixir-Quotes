@@ -1,0 +1,17 @@
+/* This file is for your main application css. */
+
+
+body {
+  min-height: 1000px;
+  padding-top: 70px;
+  background: linear-gradient(to right, #00ff99 0%, #6699ff 100%);
+}
+
+.user {
+	margin: 9px 0 0 0;
+	float: right;
+}
+
+.helper {
+	margin: -9px 0 0 0 ;
+}

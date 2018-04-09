@@ -1,13 +1,13 @@
-<h1>Quotes</h1>
 
-<div class="row">
   <div>
     <h3>
   Quotes <%= link "+", to: "/quotes/new", class: "btn btn-success" %>
 </h3>
-    <%= for quote <- @quotes do %>
-    <li class="list-group-item">
-  <%= link quote.author, to: quote_path(@conn, :show, quote.id) %>
-</li>
-<% end %>
-   
+    <ul class="list-group">
+      <%= for quote <- @quotes do %>
+      <li class="list-group-item">
+        <%= link quote.author, to: quote_path(@conn, :show, quote.id) %>: "<%= quote.body %>"
+      </li>
+      <% end %>
+    </ul>
+  </div>

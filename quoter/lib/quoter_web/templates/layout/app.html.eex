@@ -13,7 +13,7 @@
 
   <body>
     <div class="container">
-<!-- <div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,37 +21,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Quoter</a>
+      <a class="navbar-brand helper" href="/">Quoter</a>
     </div>
-  </div>
-</div>
- -->
 <%= link "Sign In",
   to: session_path(@conn, :new),
   class: "btn btn-outline-primary" %>
   <%= link "Sign Up",
   to: registration_path(@conn, :new),
   class: "btn btn-outline-primary ml-md-3" %>
-
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <h5 class="my-0 mr-md-auto font-weight-normal">
-    <a href="/" class="navbar-brand text-dark"><strong>Quoter</strong></a>
-  </h5>
-  <%= if Quoter.Auth.user_signed_in?(@conn) do %>
-    <nav class="my-2 my-md-0 mr-md-3">
-      Signed in as: <strong><%= Quoter.Auth.current_user(@conn).username %></strong>
-    </nav>
-  <% end %>
-</div>
-
-
+    
+<div class="user">
 <%= if Quoter.Auth.user_signed_in?(@conn) do %>
   <nav class="my-2 my-md-0 mr-md-3">
     Signed in as: <strong><%= Quoter.Auth.current_user(@conn).username %></strong>
   </nav>
-  
+</div>
   <%= link "Sign Out", to: session_path(@conn, :delete), method: :delete, class: "btn btn-outline-primary" %>
 <% end %>
+  </div>
+</div>
+
+
+
 
 
 
