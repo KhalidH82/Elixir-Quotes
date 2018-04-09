@@ -15,6 +15,7 @@ defmodule QuoterWeb.Router do
 
   scope "/", QuoterWeb do
     pipe_through :browser # Use the default browser stack
+    
 
     get "/", QuoteController, :index
     get "/quotes/new", QuoteController, :new
@@ -22,7 +23,12 @@ defmodule QuoterWeb.Router do
     get "/quotes/:id", QuoteController, :show
     get "/quotes/:id/edit", QuoteController, :edit
     put "/quotes/:id", QuoteController, :update
-    delete "/quotes/:id", QuoteController, :delete
+    delete "/quotes/:id", QuoteController,  :delete
+
+    resources "/sessions", SessionController, only: [:new, :create]
+    delete "/sign_out", SessionController, :delete
+
+    resources "/registrations", RegistrationController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
