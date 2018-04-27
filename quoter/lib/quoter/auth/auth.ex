@@ -1,5 +1,3 @@
-
-
 defmodule Quoter.Auth do
   alias Quoter.Repo
   alias Quoter.Auth.User
